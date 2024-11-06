@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+  background-color: none;
+}
+body {
+  color: #ffffff;
+}
+:root {
+  --first: #033b4c;
+  --second: #008081;
+}
+.menu li > details > summary:active {
+  background-color: none;
+}
+.thumbs {
+  text-align: center;
+}
+.thumbs-wrapper {
+  margin: 5px !important;
+}
+/* Add this to your CSS file or in a style tag */
+.relative:hover .expand {
+  display: block;
+}
+
+.expand {
+  display: none;
+}
