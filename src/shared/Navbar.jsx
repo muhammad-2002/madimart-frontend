@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { BsCart2 } from "react-icons/bs";
+import { CgLogOut, CgProfile } from "react-icons/cg";
+import { MdDashboard } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import LanguageDropdown from "../components/LanguageDropdown";
 
 const Navbar = () => {
+  const user = true;
   const links = (
     <>
       <li>
@@ -28,7 +31,7 @@ const Navbar = () => {
               : ""
           }
         >
-          shop
+          Shop
         </NavLink>
       </li>
     </>
@@ -39,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar shadow-md px-14 fixed z-30 bg-[#033B4C]">
+    <div className="navbar shadow-md px-14 fixed z-30  bg-[#033B4C]">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -87,30 +90,40 @@ const Navbar = () => {
         </div>
         <LanguageDropdown></LanguageDropdown>
 
-        <div
-          href="#_"
-          class=" px-5 py-1.5 overflow-hidden group bg-[var(--second)] rounded-sm relative cursor-pointer hover:bg-gradient-to-r hover:from-black-500 hover:to-green-400 text-white hover:ring-1 hover:ring-[var(--second)] transition-all ease-out duration-300"
-        >
-          <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-          <span class="relative font-semibold">Join Us</span>
-        </div>
-        <div className="avatar hidden" onClick={handleDropdown}>
-          <div className="ring-primary ring-offset-base-100 w-8 cursor-pointer rounded-full ring ring-offset-2">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+        {!user && (
+          <div
+            href="#_"
+            class=" px-5 py-1.5 overflow-hidden group bg-[var(--second)] rounded-sm relative cursor-pointer hover:bg-gradient-to-r hover:from-black-500 hover:to-green-400 text-white hover:ring-1 hover:ring-[var(--second)] transition-all ease-out duration-300"
+          >
+            <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+            <span class="relative font-semibold">Join Us</span>
           </div>
-        </div>
+        )}
+        {user && (
+          <div className="avatar " onClick={handleDropdown}>
+            <div className="ring-primary ring-offset-base-100 w-[30px] cursor-pointer rounded-full ring ring-offset-2">
+              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            </div>
+          </div>
+        )}
       </div>
       <div
         className={`${
           showDropdown ? "opacity-100 scale-100" : "opacity-0 scale-95"
-        } transform transition-all duration-300 ease-out absolute right-3 top-20 w-[150px] text-center bg-[var(--blue)] flex justify-center p-3 rounded-md ${
+        } transform transition-all duration-300 ease-out absolute right-3 top-16 w-[200px] text-center bg-[var(--blue)] flex justify-center p-3  ${
           !showDropdown ? "pointer-events-none" : ""
         }`}
       >
-        <ul>
-          <li className="cursor-pointer hover:font-bold">Update profile</li>
-          <li className="cursor-pointer hover:font-bold">Dashboard</li>
-          <li className="cursor-pointer hover:font-bold">Logout</li>
+        <ul className="bg-gradient-to-tr from-[#033B4C] to-[var(--second)] text-white  p-2 w-[200px]">
+          <li className="border-gray-300 border-[2px] p-1  border-solid hover:border-[var(--second)] cursor-pointer   ">
+            <CgProfile className="inline" /> Update profile
+          </li>
+          <li className="border-gray-300 border-[2px] p-1 border-solid hover:border-[var(--second)] cursor-pointer mt-1 flex items-center gap-2 justify-center  ">
+            <MdDashboard className="inline" /> <p>Dashboard</p>
+          </li>
+          <li className="border-gray-300 border-[2px] p-1 border-solid hover:border-[var(--second)] cursor-pointer mt-1  ">
+            <CgLogOut className="inline " /> Logout
+          </li>
         </ul>
       </div>
     </div>

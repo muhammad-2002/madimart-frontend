@@ -36,7 +36,7 @@ const LanguageDropdown = () => {
             </li>
             <li
               onClick={() => handleLanguageChange("bn")}
-              className="flex items-center px-2 py-1 text-gray-700 cursor-pointer border-gray-300 border-2  hover:border-[var(--second)]  border-solid hover:bg-gray-100"
+              className="flex items-center px-2 py-1 text-gray-700 cursor-pointer border-gray-300 border-2  hover:border-[var(--second)]  border-solid"
             >
               <span className="fi fi-bd mr-2"></span>
               <span>বাংলা</span>

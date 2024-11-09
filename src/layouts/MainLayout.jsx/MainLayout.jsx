@@ -5,7 +5,10 @@ import Navbar from "../../shared/Navbar";
 const MainLayout = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      <div className="h-[76px]">
+        <Navbar></Navbar>
+      </div>
+
       <Outlet></Outlet>
     </div>
   );
